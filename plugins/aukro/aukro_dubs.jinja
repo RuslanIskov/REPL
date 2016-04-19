@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Aukro Dubs</title>
+	<link href="plugins/aukro/main.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+	{% for dub in dubs_dict %}
+		<h3>{{ dub }}</h3>
+		<ul class="medialist">
+		{% for lot in dubs_dict[dub] %}
+			<li class="media">
+				<div class="media-left">
+					<a href="{{ lot['link'] }}">
+						<img src="{{ lot['img-link'] }}" alt="" class="media-object">
+					</a>
+				</div>
+				<div class="media-body">
+					<p class="lead">
+						{{ lot['amount'] }}x {{ lot['price'] }}
+					</p>
+					<p class="lead">
+						<a href="{{ lot['link'] }}">{{ lot['number'] }}</a>
+					</p>
+				</div>
+			</li>
+		{% endfor %}
+		</ul>
+	{% endfor %}
+	</div>
+</body>
+</html>
